@@ -31,8 +31,9 @@ class Home extends CI_Controller {
       $this->db->query("UPDATE visitor SET hits=hits+1, online='".$waktu."' WHERE ip='".$ip."' AND date='".$date."'");
       }
        
-        
+        //revisi 
       $pengunjunghariini = $this->db->query("SELECT COUNT(DISTINCT ip) AS total FROM visitor WHERE date='".$date."'")->row()->total;
+
   
       $dbpengunjung = $this->db->query("SELECT COUNT(hits) as hits FROM visitor")->row(); 
        

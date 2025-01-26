@@ -32,8 +32,8 @@ class Home extends CI_Controller {
       }
        
         
-      $pengunjunghariini  = $this->db->query("SELECT * FROM visitor WHERE date='".$date."' GROUP BY ip")->num_rows(); // Hitung jumlah pengunjung
-       
+      $pengunjunghariini = $this->db->query("SELECT COUNT(DISTINCT ip) AS total FROM visitor WHERE date='".$date."'")->row()->total;
+  
       $dbpengunjung = $this->db->query("SELECT COUNT(hits) as hits FROM visitor")->row(); 
        
       $totalpengunjung = isset($dbpengunjung->hits)?($dbpengunjung->hits):0; // hitung total pengunjung
